@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "http://file:///C:/Users/nyziu/Desktop/Rutgets-materials/Challenges/module3-challenge/Develop/index.html",
+            "request": "launch",
+            "url": "file:///C:/Users/nyziu/Desktop/Rutgets-materials/Challenges/module3-challenge/Develop/index.html"
+        }
+    ]
+}
