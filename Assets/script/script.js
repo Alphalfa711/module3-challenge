@@ -7,94 +7,70 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 // // Define generatePassword function
 function generatePassword() {
-  
-  var newPasswordArray = [];
-  var generatedPassword = [];
 
-  // // Prompt user for valid password lenght, re-prompt is user does not provide valid number
-  while (true) {    
-    var passwordLength = prompt("Q 1/5 - What should be the length of the password? (Valid range: 8-128 characters)");    
-    passwordLength = Number(passwordLength);    
-    if (isNaN(passwordLength)) {
-      continue;
-    } else {
-      if (passwordLength < 8 || passwordLength > 128)  {
+  // Initiate forever loop
+  while (true) {
+    // Declare variables
+    var newPasswordArray = [];
+    var generatedPassword = [];
+
+    // Prompt user for valid password lenght, re-prompt is user does not provide valid number between 8-128
+    while (true) {    
+      var passwordLength = prompt("Q 1/5 - What should be the length of the password? (Valid range: 8-128 characters)");    
+      // Test to see if user entered number
+      passwordLength = Number(passwordLength);    
+      // If user did not provide number display prompt again
+      if (isNaN(passwordLength)) {
         continue;
-      } else {
-        break;
-      }    
-    }  
-  }
+      } 
+      else {
+        // Chect to see if entered number is within valid range
+        if (passwordLength < 8 || passwordLength > 128)  {
+          // If number not within valid range prompt user again
+          continue;
+        } 
+        else {
+          // If number is within range break our of loop and contine executing code below
+          break;
+        }    
+      }  
+    }
 
-  // Ask user whether or not to use lowercase letters
-  var lowerCase = "";
-  while (true) {    
-    lowerCase = prompt("Q 2/5 - Should password include lowercase letters? (Valid response: Y/N");    
-    
-    if (lowerCase === 'Y' || lowerCase === 'y') {
+    // Ask user whether or not to use lowercase letters
+    var lowerCase = confirm("Q 2/5 - Should password include lowercase letters?")
+    if (lowerCase) {
+      // If user confirms prompt push ASCII representation of lowercase letters to newPasswordArray
       for (var i = 97; i < 123; i++)
         newPasswordArray.push(i);
-      break;
     } 
-    else if (lowerCase === 'N' || lowerCase === 'n' ) {
-      break;
-    }
-    else {      
-      continue;
-      }    
-    }  
-
-  // Ask user whether or not to use uppercase letters
-  var upperCase = "";
-  while (true) {    
-    upperCase = prompt("Q 3/5 - Should password include uppercase letters? (Valid response: Y/N");    
     
-    if (upperCase === 'Y' || upperCase === 'y') {
+    // Ask user whether or not to use uppercase letters
+    var upperCase = confirm("Q 3/5 - Should password include uppercase letters?");    
+    if (upperCase) {
+      // If user confirms prompt push ASCII representation of uppercase letters to newPasswordArray
       for (var i = 65; i < 91; i++)
         newPasswordArray.push(i);
-      break;
-    } 
-    else if (upperCase === 'N' || upperCase === 'n' ) {
-      break;
-    }
-    else {      
-      continue;
-      }    
-    }  
-
-   // Ask user whether or not to use uppercase letters
-  var numbers = "";
-  while (true) {    
-    numbers = prompt("Q 4/5 - Should password include numbers? (Valid response: Y/N");    
+      } 
     
-    if (numbers === 'Y' || numbers === 'y') {
+    // Ask user whether or not to use uppercase letters
+    var numbers = confirm("Q 4/5 - Should password include numbers?");    
+    if (numbers) {
+      // If user confirms prompt push ASCII representation of numbers to newPasswordArray
       for (var i = 48; i < 58; i++)
         newPasswordArray.push(i);
-      break;
     } 
-    else if (numbers === 'N' || numbers === 'n' ) {
-      break;
-    }
-    else {      
-      continue;
-      }    
-    }  
 
-   // Ask user whether or not to use special characters
-  var specialChar = "";
-  while (true) {    
-    specialChar = prompt("Q 5/5 - Should password include special characters? (Valid response: Y/N");    
-    
-    if (specialChar === 'Y' || specialChar === 'y') {
+    // Ask user whether or not to use special characters
+    var specialChar = confirm("Q 5/5 - Should password include special characters?");    
+    if (specialChar) {
+      // If user confirms prompt push ASCII representation of special characters to newPasswordArray
       for (var i = 33; i < 48; i++) {
         newPasswordArray.push(i);
       }
@@ -107,27 +83,37 @@ function generatePassword() {
       for (var i = 123; i < 127; i++) {
         newPasswordArray.push(i);
       }
+    }
+
+    // If user pressed OK to at least one prompt execute below code
+    if (newPasswordArray.length > 0) {
+      var randomArrayIndex;
+      for (var i = 0; i < passwordLength; i++) {
+        // Generate random array index
+        randomArrayIndex = newPasswordArray[Math.floor(Math.random() * newPasswordArray.length)];
+        // Convert number to char from ASCII table and push to generatedPassword array
+        generatedPassword.push(String.fromCharCode(randomArrayIndex));
+      }
+      // break out of while true loop
       break;
     } 
-    else if (specialChar === 'N' || specialChar === 'n' ) {
-      break;
+    // If user did not accept any prompt and array is empty 
+    else {
+      // Alert user that password cannot be generated
+      alert("Unable to generate password, at least one prompt needs to be accepted.")
+      // Ask user to start the process again
+      var restart = confirm("Start the process again ?")
+      if (restart) {
+        // If confirmed start from the beginning
+        continue;
+      }
+      else {
+        // Return original input box text
+        return "Your Secure Password";        
+      }      
     }
-    else {      
-      continue;
-      }    
-    }  
+  }  
 
-  
-  var randomChar;
-  for (var i = 0; i < passwordLength; i++) {
-    randomChar = newPasswordArray[Math.floor(Math.random() * newPasswordArray.length)];
-
-    generatedPassword.push(String.fromCharCode(randomChar));
-  }
-
-
-  // passwordLength; lowerCase
-    console.log(newPasswordArray);
-
-  return generatedPassword.join("");
+  // Return generated password
+  return generatedPassword.join("");    
 }
