@@ -4,7 +4,7 @@
 [Github repository](https://github.com/Alphalfa711/password-generator)
 
 ## Link to deployed website
-[Link to deployed site](https://github.com/Alphalfa711/password-generator/)
+[Link to deployed site](https://alphalfa711.github.io/password-generator/)
 
 ## Description
 
