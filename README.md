@@ -9,11 +9,16 @@
 ## Description
 
 ```
-This website was designed to help users generate random and complex password based on their preference. Users have abitlity to choose types of characters to be included in their password.
+This website was designed to help users generate random and complex
+password based on their preference. Users have abitlity to choose 
+types of characters to be included in their password.
 
-After clicking "Generate Password" user is presented with various prompts to either accept or reject specified characters. 
+After clicking "Generate Password" user is presented with 
+various prompts to either accept or reject specified characters. 
 
-As long as user accepted at least one category of characters to be selected in the password new randomly generated phrase will display on the main screen.
+As long as user accepted at least one category of characters to 
+be selected in the password new randomly generated phrase will 
+display on the main screen.
 ```
 
 ## User Story
