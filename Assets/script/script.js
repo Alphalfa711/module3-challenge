@@ -43,12 +43,19 @@ function generatePassword() {
       }  
     }
 
+    // const alpha = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
+    
     // Ask user whether or not to use lowercase letters
     var lowerCase = confirm("Q 2/5 - Should password include lowercase letters?")
     if (lowerCase) {
-      // If user confirms prompt push ASCII representation of lowercase letters to newPasswordArray
-      for (var i = 97; i < 123; i++)
-        newPasswordArray.push(i);
+      // If user confirms prompt, push ASCII representation of lowercase letters to newPasswordArray
+      // ASCII range for lowercase letters 97-122      
+      for (var i = 97; i < 123; i++) {
+        // newPasswordArray.push(i);
+        newPasswordArray.push(String.fromCharCode(i));
+      // newPasswordArray.push(String.fromCharCode(i + 97));      
+      }
+      console.log(newPasswordArray)
     } 
     
     // Ask user whether or not to use uppercase letters
@@ -56,7 +63,8 @@ function generatePassword() {
     if (upperCase) {
       // If user confirms prompt push ASCII representation of uppercase letters to newPasswordArray
       for (var i = 65; i < 91; i++)
-        newPasswordArray.push(i);
+        // newPasswordArray.push(i);
+        newPasswordArray.push(String.fromCharCode(i));
       } 
     
     // Ask user whether or not to use uppercase letters
@@ -106,7 +114,7 @@ function generatePassword() {
       if (restart) {
         // If confirmed start from the beginning
         continue;
-      }
+      }      
       else {
         // Return original input box text
         return "Your Secure Password";        
