@@ -52,7 +52,7 @@ function generatePassword() {
       // ASCII range for lowercase letters 97-122      
       for (var i = 97; i < 123; i++) {
         // newPasswordArray.push(i);
-        newPasswordArray.push(String.fromCharCode(i));
+        newPasswordArray.push(i);
       // newPasswordArray.push(String.fromCharCode(i + 97));      
       }
     } 
@@ -63,7 +63,7 @@ function generatePassword() {
       // If user confirms prompt push ASCII representation of uppercase letters to newPasswordArray
       for (var i = 65; i < 91; i++)
         // newPasswordArray.push(i);
-        newPasswordArray.push(String.fromCharCode(i));
+        newPasswordArray.push(i);
       } 
     
     // Ask user whether or not to use uppercase letters
