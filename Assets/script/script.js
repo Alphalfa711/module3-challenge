@@ -25,7 +25,7 @@ function generatePassword() {
     while (true) {    
       var passwordLength = prompt("Q 1/5 - What should be the length of the password? (Valid range: 8-128 characters)");    
       // Test to see if user entered number
-      passwordLength = Number(passwordLength);    
+      passwordLength = parseInt(passwordLength);    
       // If user did not provide number display prompt again
       if (isNaN(passwordLength)) {
         continue;
@@ -55,7 +55,6 @@ function generatePassword() {
         newPasswordArray.push(String.fromCharCode(i));
       // newPasswordArray.push(String.fromCharCode(i + 97));      
       }
-      console.log(newPasswordArray)
     } 
     
     // Ask user whether or not to use uppercase letters
