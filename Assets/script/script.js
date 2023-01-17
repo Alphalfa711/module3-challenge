@@ -46,8 +46,7 @@ function generatePassword() {
     // const alpha = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
     
     // Ask user whether or not to use lowercase letters
-    var lowerCase = confirm("Q 2/5 - Should password include lowercase letters?")
-    if (lowerCase) {
+    if ( confirm("Q 2/5 - Should password include lowercase letters?") ) {
       // If user confirms prompt, push ASCII representation of lowercase letters to newPasswordArray
       // ASCII range for lowercase letters 97-122      
       for (var i = 97; i < 123; i++) {
@@ -58,8 +57,7 @@ function generatePassword() {
     } 
     
     // Ask user whether or not to use uppercase letters
-    var upperCase = confirm("Q 3/5 - Should password include uppercase letters?");    
-    if (upperCase) {
+    if ( confirm("Q 3/5 - Should password include uppercase letters?") ) {
       // If user confirms prompt push ASCII representation of uppercase letters to newPasswordArray
       for (var i = 65; i < 91; i++)
         // newPasswordArray.push(i);
@@ -67,16 +65,14 @@ function generatePassword() {
       } 
     
     // Ask user whether or not to use uppercase letters
-    var numbers = confirm("Q 4/5 - Should password include numbers?");    
-    if (numbers) {
+    if ( confirm("Q 4/5 - Should password include numbers?") ) {
       // If user confirms prompt push ASCII representation of numbers to newPasswordArray
       for (var i = 48; i < 58; i++)
         newPasswordArray.push(i);
     } 
 
     // Ask user whether or not to use special characters
-    var specialChar = confirm("Q 5/5 - Should password include special characters?");    
-    if (specialChar) {
+      if ( confirm("Q 5/5 - Should password include special characters?") ) {
       // If user confirms prompt push ASCII representation of special characters to newPasswordArray
       for (var i = 33; i < 48; i++) {
         newPasswordArray.push(i);
@@ -120,6 +116,11 @@ function generatePassword() {
       }      
     }
   }  
+
+
+  // const alpha = Array.from(Array(26)).map((e, i) => i + 65).map((x) => String.fromCharCode(x));
+  // const testArray = Array.from(newPasswordArray.map((e) => String.fromCharCode(e)));
+  // console.log(testArray)
 
   // Return generated password
   return generatedPassword.join("");    
