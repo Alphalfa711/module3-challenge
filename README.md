@@ -21,33 +21,25 @@ be selected in the password new randomly generated phrase will
 display on the main screen.
 ```
 
-## User Story
+## Steps
+```
+1. Click "Generate Password" button
+2. Enter number between 8 and 128 for desired length of password
+3. When prompted either accept / deny lowercase letters to be included in new password
+4. When prompted either accept / deny uppercase letters to be included in new password
+5. When prompted either accept / deny numbers to be included in new password
+6. When prompted either accept / deny special characters to be included in new password
+7. Based on provided answers new password will be displayed in text box
+8. Copy and save generated code
+```
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+## Prompt example
 
-## Acceptance Criteria
+The following image shows the web application's prompt to user for input / confirmation
 
-```
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-```
+![The Password Generator applicaiton displays a prompt to user to enter desired lenght for new password.](./Assets/images/prompt-snap-screen.png)
+
+
 
 ## Mock-Up
 
